@@ -27,4 +27,5 @@ This is a high-fidelity student performance prediction system built on a Linear 
 - **RMSE**: 2.04 points
 - **Data**: 10,000 students analyzed using the PACE workflow.
 
-Created by: Data Science Expert (20+ Years Experience)
+Created by: Saifuddin Hanif
+
