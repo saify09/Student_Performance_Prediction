@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentAI Pro | Ultimate Analytics Suite</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="pro-theme">
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">💎</span>
+                <h2>StudentAI <span>ULTIMATE</span></h2>
+            </div>
+            <nav>
+                <div class="nav-item active">📊 Dashboard</div>
+                <div class="nav-item">⏳ History</div>
+                <div class="nav-item">📈 Optimizer</div>
+                <div class="nav-item">🛡️ Model Health</div>
+            </nav>
+            <div class="pro-badge">
+                <p>v2.1 Stable Engine</p>
+                <div class="accuracy-dot"></div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="main-header">
+                <div class="header-text">
+                    <h1>Academic Intelligence Center</h1>
+                    <p>Advanced feature engineering handles 0-score scenarios with adaptive intercept normalization.</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">PRO</div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="left-col">
+                    <section class="prediction-card card">
+                        <div class="card-header">
+                            <h3>Diagnostic Inputs</h3>
+                            <button id="savePrediction" class="mini-btn">Save to History</button>
+                        </div>
+                        
+                        <form id="proForm">
+                            <div class="slider-group">
+                                <div class="label-row">
+                                    <label>Study Commitment</label>
+                                    <span id="hoursVal">5h</span>
+                                </div>
+                                <input type="range" id="hoursStudied" min="0" max="10" step="1" value="5">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="label-row">
+                                    <label>Academic Base (Prev Score)</label>
+                                    <span id="scoresVal">70%</span>
+                                </div>
+                                <input type="range" id="previousScores" min="0" max="100" step="1" value="70">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="label-row">
+                                    <label>Circadian Recovery</label>
+                                    <span id="sleepVal">7h</span>
+                                </div>
+                                <input type="range" id="sleepHours" min="0" max="10" step="1" value="7">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="label-row">
+                                    <label>Exposure Practice</label>
+                                    <span id="papersVal">5</span>
+                                </div>
+                                <input type="range" id="papersPracticed" min="0" max="10" step="1" value="5">
+                            </div>
+
+                            <div class="toggle-row">
+                                <label>Extracurricular Pulse</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="extraActivities">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section class="history-card card">
+                        <h3>Prediction History</h3>
+                        <div id="historyList" class="history-list">
+                            <p class="empty-msg">No snapshots saved yet.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="right-col">
+                    <div class="result-card card primary-gradient">
+                        <h3>Forecasted Success Index</h3>
+                        <div class="score-main">
+                            <span id="scoreValue">72</span><span class="unit">%</span>
+                        </div>
+                        <div class="confidence-indicator">
+                            <div class="progress-bar">
+                                <div class="fill" style="width: 98.8%;"></div>
+                            </div>
+                            <p>Reliability: 98.8% Accurate Forecast</p>
+                        </div>
+                    </div>
+
+                    <div class="insights-grid">
+                        <div class="card small-card">
+                            <h3>Factor Contribution</h3>
+                            <canvas id="contributionChart"></canvas>
+                        </div>
+                        <div class="card small-card">
+                            <h3>Success Probability</h3>
+                            <div class="radial-progress">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path id="successCircle" class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <text x="18" y="20.35" class="percentage" id="successPctText">0%</text>
+                                </svg>
+                            </div>
+                            <p class="sub-label">Chance of High Distinction</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-card card">
+                        <h3>Profile Radar Comparison</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
